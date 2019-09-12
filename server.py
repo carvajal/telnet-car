@@ -47,13 +47,7 @@ class Server:
 
   # Function for handling connections. This will be used to create threads.
   def _clientthread(self, conn):
-    # Sending message to connected client.
-    conn.send(b'Connection with the car established.\n')
-    conn.send(b'To check car velocity and gas throttle type:\n')
-    conn.send(b'STATUS\n')
-    conn.send(b'To press the gas pedal to 85% type:\n')
-    conn.send(b'THROTTLE 85\n')
-    
+    # Sending message to connected client.    
     # Infinite loop that will finish on client disconnect.
     while True:
       # Receiving from client.

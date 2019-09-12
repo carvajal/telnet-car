@@ -6,7 +6,7 @@ from time import time
 
 CAR_MASS = 1500
 FORWARD_FORCE = lambda throttle_percentage: 5400 * throttle_percentage / 100.0
-DRAG_FORCE = lambda velocity: 0.2 * (velocity ** 2)
+DRAG_FORCE = lambda velocity: 0.8 * (velocity ** 2)
 UPDATE_INTERVAL = 0.1 # secs
 OBSERVE_INTERVAL = 1.0 # secs
 
@@ -48,7 +48,7 @@ class Car:
     Timer(UPDATE_INTERVAL, self.update_and_reschedule).start()
 
   def status(self):
-    return 'Acceleration: %.2f%% - Velocity: %.2f Km/h' % (self.throttle_percentage, self.velocity * 3.6) 
+    return '%.2f %% %.2f Km/h' % (self.throttle_percentage, self.velocity * 3.6) 
 
   def observe_and_reschedule(self):
     print(self.status())
